@@ -1,0 +1,163 @@
+# Autonomous Drone Routing System
+
+## Goldman Sachs Hackathon 2026 — Problem Statement 3
+
+An intelligent autonomous drone fleet routing engine designed to optimize package deliveries in a dynamically changing urban environment with time-dependent No-Fly Zones (NFZs), battery constraints, and payload limitations.
+
+---
+
+# Problem Overview
+
+In a futuristic urban logistics ecosystem, autonomous drones are responsible for completing deliveries while navigating:
+
+* Dynamic No-Fly Zones (NFZs)
+* Limited battery capacity
+* Payload constraints
+* Charging station dependencies
+* Time-sensitive routing
+
+The objective is to maximize delivery efficiency while ensuring all operational constraints are satisfied.
+
+---
+
+# Key Features
+
+* Dynamic route recalculation
+* Time-aware No-Fly Zone avoidance
+* Multi-package delivery optimization
+* Battery-aware path planning
+* Charging station support
+* Euclidean distance-based navigation
+* Fleet management for multiple drones
+
+---
+
+# System Constraints
+
+| Constraint         | Value                      |
+| ------------------ | -------------------------- |
+| Drone Speed        | 1 distance unit / timestep |
+| Battery Capacity   | 500 energy units           |
+| Charging Rate      | 2 energy units / timestep  |
+| Navigation Type    | Straight-line Euclidean    |
+| Warehouse Position | Center of Map              |
+
+---
+
+# Core Functionalities
+
+## 1. Fleet Assignment
+
+Efficiently assigns deliveries across multiple drones while respecting payload capacities.
+
+## 2. Dynamic Path Planning
+
+Calculates optimal routes considering:
+
+* Active NFZs
+* Distance minimization
+* Energy consumption
+* Return feasibility
+
+## 3. Battery Management
+
+Tracks drone battery usage in real-time and routes drones to charging stations when necessary.
+
+## 4. Multi-Delivery Optimization
+
+Allows drones to carry multiple packages in a single trip to improve operational efficiency.
+
+---
+
+# Algorithmic Approach
+
+The system combines:
+
+* Greedy Optimization
+* Shortest Path Computation
+* Constraint-Based Scheduling
+* Dynamic Simulation
+* Spatial Geometry Calculations
+
+Possible optimization techniques explored:
+
+* Dijkstra/A*
+* Priority Scheduling
+* Heuristic Route Selection
+* Battery-aware cost functions
+
+---
+
+# Project Structure
+
+```bash
+.
+├── src/
+│   ├── algorithms/
+│   ├── simulation/
+│   ├── routing/
+│   ├── utils/
+│   └── main.*
+│
+├── testcases/
+├── outputs/
+├── README.md
+└── requirements/package files
+```
+
+---
+
+# Execution
+
+## Clone Repository
+
+```bash
+git clone <repository-link>
+cd <repository-name>
+```
+
+## Install Dependencies
+
+```bash
+npm install
+```
+
+or
+
+```bash
+pip install -r requirements.txt
+```
+
+## Run Project
+
+```bash
+npm start
+```
+
+or
+
+```bash
+python main.py
+```
+
+---
+
+# Optimization Goals
+
+The routing engine aims to:
+
+* Minimize total delivery time
+* Reduce battery consumption
+* Avoid NFZ violations
+* Maximize delivery throughput
+* Improve fleet utilization
+
+---
+
+# Team
+
+* Ravi Kumar
+
+# Thank You
+
+Built as part of the Goldman Sachs Hackathon 2026.

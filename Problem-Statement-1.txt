@@ -1,0 +1,258 @@
+## Goldman Sachs Hackathon 2026 — Problem Statement 1
+
+# Problem Overview
+
+This project builds a fully deterministic JSON schema inference engine capable of:
+
+* Parsing large JSON datasets
+* Inferring TypeScript interfaces
+* Resolving nested object structures
+* Handling unions and optional fields
+* Generating collision-free interface names
+* Producing character-perfect output
+
+The generated output must exactly match the expected result, including:
+
+* Whitespace
+* Ordering
+* Newlines
+* Formatting
+* Lexicographical sorting
+
+---
+
+# Core Features
+
+* Recursive JSON structure analysis
+* Deterministic interface generation
+* Nested object merging
+* Array type inference
+* Optional field detection
+* Union type generation
+* Collision-safe interface naming
+* Stable ASCII-based sorting
+
+---
+
+# Supported Type Inference
+
+## Primitive Types
+
+* string
+* number
+* boolean
+* null
+
+## Complex Types
+
+* Nested objects
+* Arrays
+* Mixed arrays
+* Union types
+* Nullable objects
+* Optional properties
+
+---
+
+# Deterministic Naming Engine
+
+Interface names are generated using:
+
+InterfaceName = key[0].toUpperCase() + key.slice(1)
+
+Collision handling:
+
+* Address
+* Address2
+* Address3
+* ...
+
+ensures globally unique interfaces.
+
+---
+
+# Type Merging Logic
+
+The engine recursively merges all observed structures across records:
+
+## Object Merge
+
+MergedType = \bigcup_{objects} Keys(object)
+
+## Union Construction
+
+Types are combined using deterministic ASCII-sorted unions:
+
+```ts id="qpkdlf"
+number | string
+```
+
+```ts id="1yd0kg"
+Address | null
+```
+
+```ts id="2vd2tb"
+(boolean | null | number | string)[]
+```
+
+---
+
+# Array Inference Rules
+
+The system supports:
+
+* Primitive arrays
+* Object arrays
+* Mixed-type arrays
+* Empty arrays
+
+Examples:
+
+```ts id="9b2lq4"
+string[]
+```
+
+```ts id="m9ajiy"
+(Items | number | string)[]
+```
+
+```ts id="0n9caj"
+unknown[]
+```
+
+---
+
+# Key Functionalities
+
+## 1. Recursive Schema Discovery
+
+Traverses nested JSON structures up to depth 10.
+
+## 2. Stable Type Generation
+
+Guarantees identical output for identical input.
+
+## 3. ASCII-Based Sorting
+
+Ensures deterministic ordering for:
+
+* Properties
+* Interfaces
+* Union types
+
+## 4. Collision-Free Naming
+
+Automatically resolves interface naming conflicts.
+
+---
+
+# Algorithmic Approach
+
+The solution combines:
+
+* DFS Tree Traversal
+* Recursive Type Aggregation
+* Structural Hashing
+* Deterministic Sorting
+* Schema Normalization
+
+---
+
+# Project Structure
+
+```bash id="r7j36n"
+.
+├── src/
+│   ├── parser/
+│   ├── inference/
+│   ├── naming/
+│   ├── formatter/
+│   ├── merger/
+│   └── main.*
+│
+├── testcases/
+├── outputs/
+├── README.md
+└── requirements/package files
+```
+
+---
+
+# Execution
+
+## Clone Repository
+
+```bash id="k8ozx4"
+git clone <repository-link>
+cd <repository-name>
+```
+
+## Install Dependencies
+
+```bash id="80rcic"
+npm install
+```
+
+or
+
+```bash id="kg00m0"
+pip install -r requirements.txt
+```
+
+## Run Program
+
+```bash id="b8y7dy"
+npm start
+```
+
+or
+
+```bash id="qaqbik"
+python main.py
+```
+
+---
+
+# Example Generated Output
+
+```ts id="6eu9db"
+export interface RootType {
+  id: number | string;
+  items: (boolean | null | number | string)[];
+  value: number | string;
+}
+```
+
+---
+
+# Technical Highlights
+
+* Handles up to 10,000 JSON objects
+* Supports deeply nested schemas
+* Deterministic character-perfect generation
+* Optimized recursive merging
+* Strict formatting compliance
+* Efficient large-scale inference engine
+
+---
+
+# Team
+
+* Ravi Kumar
+
+
+---
+
+# Future Improvements
+
+* JSON Schema export support
+* GraphQL type generation
+* OpenAPI integration
+* Interactive schema visualization
+* Rust/WASM performance optimization
+
+---
+
+# Thank You
+
+Built as part of the Goldman Sachs Hackathon 2026.
